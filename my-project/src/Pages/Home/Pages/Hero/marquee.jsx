@@ -33,12 +33,12 @@ function marquee() {
       className="marqueeContainer absolute top-0 section no-select w-full h-screen overflow-hidden"
     >
       <div className="heading font-poppins  text-center mt-20 sm:mt-24">
-        <h1 className="text-sm  tracking-tighter sm:text-xl lg:text-2xl  text-nowrap">
+        <h1 className="text-sm  tracking-tighter sm:text-sm lg:text-lg 2xl:text-2xl  text-nowrap">
           Transforming Spaces with Innovative Design <br /> and Creative
           Solutions
         </h1>
       </div>
-      <div className="marquee text-3xl sm:text-6xl xl:text-6xl scale-[1] absolute top-1/2 font-semibold font-NeueMachina left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]">
+      <div className="marquee text-3xl sm:text-6xl lg:text-4xl 2xl:text-6xl scale-[1] absolute top-1/2 font-semibold font-NeueMachina left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]">
         {[
           { direction: "row-left" },
           { direction: "row-right" },
@@ -74,7 +74,7 @@ function marquee() {
                     {id == 8 ? (
                       ""
                     ) : (
-                      <div className="circle w-[1.8rem] h-[1.8rem] md:w-[3.5rem] md:h-[3.5rem] rounded-full "></div>
+                      <div className="circle w-[1.8rem] h-[1.8rem] md:w-[3.5rem] md:h-[3.5rem] lg:size-[2rem] rounded-full "></div>
                     )}
                   </div>
                 );

@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const VideoContainer = () => {
   const salmonSection = useRef(null);
+
   useEffect(() => {
     const tl = gsap.timeline(
       {
@@ -43,10 +44,10 @@ const VideoContainer = () => {
       >
         <Video />
         <div className="absolute mix-blend-exclusion text-white  flex gap-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <h1 className="text-left font-Gilgan  tracking-tighter text-[1em] sm:text-[2em] md:text-[3em] xl:text-[4em] font-medium">
+          <h1 className="text-lef font-Gilgan  tracking-tighter text-[1em] sm:text-[2em] xl:text-[3em] 2xl:text-[4em] font-medium">
             Signature
           </h1>
-          <h1 className="text-right font-Gilgan  tracking-tighter text-[1em] sm:text-[2em] md:text-[3em] xl:text-[4em] font-medium">
+          <h1 className="text-rigt font-Gilgan  tracking-tighter text-[1em] sm:text-[2em] xl:text-[3em] 2xl:text-[4em] font-medium">
             Signature
           </h1>
         </div>

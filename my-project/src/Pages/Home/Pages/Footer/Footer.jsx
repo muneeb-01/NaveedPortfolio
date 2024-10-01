@@ -7,7 +7,7 @@ const Footer = () => {
       data-scroll
       data-scroll-section
       data-scroll-speed={window.innerWidth > 1284 ? "0.989" : "0"}
-      className="w-full bg-[#4C6EE1] text-white h-[95vh] mt-[15vh] flex flex-col rounded-tl-[50px] rounded-tr-[50px]"
+      className="w-full bg-[#4C6EE1] text-white min-h-[95vh] mt-[15vh] flex flex-col rounded-tl-[50px] rounded-tr-[50px]"
     >
       <Marquee />
       <Links />
@@ -20,14 +20,14 @@ export default Footer;
 const Marquee = () => {
   return (
     <div className="w-full relative py-[2.8vh] md:py-[4vh] xl:py-[7vh]   border-b-4 border-white  ">
-      <div className=" overflow-hidden tracking-tighter text-xl sm:text-[8.3rem] md:text-[10rem] lg:text-[8rem] xl:leading-[0.81em] py-[2vh] flex items-center">
+      <div className=" overflow-hidden tracking-tighter text-lg sm:text-[8.3rem] md:text-[10rem] 2xl:text-[8rem] xl:text-[5rem]  xl:leading-[0.81em] py-[2vh] flex items-center">
         <motion.h1
           initial={{ x: "0" }}
           animate={{ x: "-100%" }}
           transition={{ repeat: Infinity, ease: "linear", duration: "18" }}
           className="font-Gilgan font-semibold text-nowrap pl-[4vw]"
         >
-          <span className="inline-block size-[6rem] rounded-full mr-[4vw] bg-[#C5F553]"></span>
+          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#C5F553]"></span>
           Let's work <span className=" font-Crisp font-thin">together</span>
         </motion.h1>
         <motion.h1
@@ -36,7 +36,7 @@ const Marquee = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: "18" }}
           className="font-Gilgan font-semibold text-nowrap pl-[4vw]"
         >
-          <span className="inline-block size-[6rem] rounded-full mr-[4vw] bg-[#C5F553]"></span>
+          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#C5F553]"></span>
           Let's work <span className=" font-Crisp font-thin">together</span>
         </motion.h1>
         <motion.h1
@@ -45,7 +45,7 @@ const Marquee = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: "18" }}
           className="font-Gilgan font-semibold text-nowrap pl-[4vw]"
         >
-          <span className="inline-block size-[6rem] rounded-full mr-[4vw] bg-[#C5F553]"></span>
+          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#C5F553]"></span>
           Let's work <span className=" font-Crisp font-thin">together</span>
         </motion.h1>
       </div>
@@ -55,22 +55,22 @@ const Marquee = () => {
 
 const Links = () => {
   return (
-    <div className="w-full flex-grow grid grid-cols-[35%_35%_15%_15%] p-28">
+    <div className="w-full flex-grow grid grid-cols-[35%_35%_15%_15%] 2xl:p-28 xl:p-[4rem]">
       <div className="">
-        <h2 className="font-signature tracking-tight text-7xl ">
+        <h2 className="font-signature tracking-tight  xl:text-7xl ">
           naveed mughal
         </h2>
-        <p className="text-lg font-poppins font-medium tracking-tight mt-4">
+        <p className="xl:text-[1rem] 2xl:text-lg font-poppins font-medium tracking-tight mt-4">
           We show the power of{" "}
           <span className="font-Crisp text-[#C5F553] text-xl">design</span>
         </p>
-        <p className="text-lg font-poppins font-medium tracking-tight mt-2">
+        <p className="xl:text-[1rem] 2xl:text-lg font-poppins font-medium tracking-tight 2xl:mt-2 xl:mt-1">
           We show the power of{" "}
           <span className="font-Crisp text-[#C5F553] text-xl">beauty</span>
         </p>
       </div>
       <div className="">
-        <p className="font font-poppins mt-[3vh] text-lg text-[#C5F553]">
+        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#C5F553]">
           Drop me a line
         </p>
         <div className="mt-[4.9vh]">
@@ -83,33 +83,51 @@ const Links = () => {
         </div>
       </div>
       <div className="">
-        <p className="font font-poppins mt-[3vh] text-lg text-[#C5F553]">
+        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#C5F553]">
           Link
         </p>
         <div className="mt-[4.9vh] flex flex-col">
-          <a className="font font-poppins text-lg tracking-tighter" href="#">
+          <a
+            className="font font-poppins xl:text-[1rem] 2xl:text-lg tracking-tighter"
+            href="#"
+          >
             Portfolio
           </a>
-          <a className="font font-poppins text-lg  tracking-tighter" href="#">
+          <a
+            className="font font-poppins xl:text-[1rem] 2xl:text-lg  tracking-tighter"
+            href="#"
+          >
             Services
           </a>
-          <a className="font font-poppins text-lg  tracking-tighter" href="#">
+          <a
+            className="font font-poppins xl:text-[1rem] 2xl:text-lg  tracking-tighter"
+            href="#"
+          >
             About
           </a>
         </div>
       </div>
       <div className="">
-        <p className="font font-poppins mt-[3vh] text-lg text-[#C5F553]">
+        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#C5F553]">
           Social Media
         </p>
         <div className="mt-[4.9vh] flex flex-col">
-          <a className="font font-poppins text-lg tracking-tighter" href="#">
+          <a
+            className="font font-poppins xl:text-[1rem] 2xl:text-lg tracking-tighter"
+            href="#"
+          >
             Instagram
           </a>
-          <a className="font font-poppins text-lg  tracking-tighter" href="#">
+          <a
+            className="font font-poppins xl:text-[1rem] 2xl:text-lg  tracking-tighter"
+            href="#"
+          >
             Behance
           </a>
-          <a className="font font-poppins text-lg  tracking-tighter" href="#">
+          <a
+            className="font font-poppins xl:text-[1rem] 2xl:text-lg  tracking-tighter"
+            href="#"
+          >
             LinkedIn
           </a>
         </div>

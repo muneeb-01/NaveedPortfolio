@@ -3,6 +3,20 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Video() {
+  const textPlace = () => {
+    const width = window.innerWidth;
+    if (width > 1700) {
+      return 270;
+    } else if (width > 1500) {
+      return 250;
+    } else if (width > 1300) {
+      return 180;
+    } else if (width > 1000) {
+      return 70;
+    } else {
+      return 0;
+    }
+  };
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -23,16 +37,16 @@ function Video() {
       "b"
     )
       .to(
-        ".text-left",
+        ".text-lef",
         {
-          xPercent: -200,
+          xPercent: -textPlace(),
         },
         "b"
       )
       .to(
-        ".text-right",
+        ".text-rigt",
         {
-          xPercent: 200,
+          xPercent: textPlace(),
         },
         "b"
       );

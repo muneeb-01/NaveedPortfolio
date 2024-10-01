@@ -58,13 +58,13 @@ const StackContainer = ({ address }) => {
           alt="Image"
         />
         <div className="w-full flex ">
-          <div className="w-3/4  pl-20 flex items-center">
-            <h1 className="text-[7rem] pb-10 font-poppins tracking-tight uppercase text-white">
+          <div className="w-3/4  2xl:pl-20 xl:pl-12 flex items-center">
+            <h1 className="2xl:text-[7rem] xl:text-[5rem] 2xl:pb-10 xl:pb-0 font-poppins tracking-tight uppercase text-white">
               THE ESCAPE
             </h1>
           </div>
-          <div className="w-1/2 flex justify-end items-center pr-20">
-            <div className="rounded-full bg-white size-[10rem] opacity-85"></div>
+          <div className="w-1/2 flex justify-end items-center 2xl:pr-20 xl:pr-10">
+            <div className="rounded-full bg-white 2xl:size-[10rem] xl:size-[6rem]  opacity-85"></div>
           </div>
         </div>
       </div>
@@ -74,11 +74,11 @@ const StackContainer = ({ address }) => {
 
 const Header = () => {
   return (
-    <div className=" text-center py-[6vh] flex flex-col justify-center items-center 2xl:gap-[4.5vh]">
+    <div className=" text-center py-[6vh] flex flex-col justify-center items-center xl:gap-[4.5vh]">
       <h1 className="fs2-horizontal uppercase font-Gilgan  tracking-tight font-medium ">
         WORKS
       </h1>
-      <p className="text-2xl w-[35%] font-poppins tracking-tight">
+      <p className="2xl:text-2xl xl:text-lg xl:leading-[1.2rem] w-[35%] font-poppins tracking-tight">
         Elevate your space with our top picks. Handpicked for their timeless
         design and quality, these pieces will bring character and charm to any
         room.

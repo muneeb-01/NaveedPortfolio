@@ -50,7 +50,7 @@
 }
 
 .fs1 {
-  @apply lg:text-sm md:text-xs sm:text-[14px] text-[10px];
+  @apply lg:text-xs md:text-xs sm:text-[14px] text-[10px];
 }
 
 body[theme="dark"] {
@@ -100,7 +100,7 @@ body {
 }
 
 .fs2-horizontal {
-  @apply xl:text-[7em] tracking-tight lg:text-3xl md:text-xl sm:text-lg transition-all;
+  @apply 2xl:text-[7em] xl:text-[5em] tracking-tight lg:text-3xl md:text-xl sm:text-lg transition-all;
 }
 
 .stack {
