@@ -3,7 +3,7 @@ import React from "react";
 function Services() {
   return (
     <>
-      <div className="horizontal no-select overflow-hidden section w-full px-20 pb-32 h-screen relative">
+      <div className="horizontal no-select overflow-hidden section w-full px-20 pb-32 h-screen relative mt-[8vh]">
         <div className="w-[100%] h-[100%] flex flex-col  justify-around items-center">
           <h1 className="fs1  xl:text-3xl  tracking-tight font-bold font-Gilgan place-self-center w-full text-center border-b-4 pb-16">
             SERVICES
