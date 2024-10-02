@@ -6,9 +6,9 @@ function Video() {
   const textPlace = () => {
     const width = window.innerWidth;
     if (width > 1700) {
-      return 270;
+      return 220;
     } else if (width > 1500) {
-      return 250;
+      return 200;
     } else if (width > 1300) {
       return 180;
     } else if (width > 1000) {

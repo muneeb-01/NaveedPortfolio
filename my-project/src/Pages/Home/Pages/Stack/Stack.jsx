@@ -50,11 +50,11 @@ const StackContainer = ({ address }) => {
   return (
     <div className="stack drop-shadow-xl">
       <div
-        className={`w-[95%] h-[88%] relative flex justify-center overflow-hidden items-end rounded-[40px]`}
+        className={`w-[87%] h-[82%] relative flex justify-center overflow-hidden items-end rounded-[20px]`}
       >
         <img
           src={`${address}`}
-          className="absolute -z-10 w-full bg-cover bg-center"
+          className="absolute -z-10 w-full h-full bg-cover bg-center"
           alt="Image"
         />
         <div className="w-full flex ">

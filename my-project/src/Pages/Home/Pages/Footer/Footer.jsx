@@ -7,7 +7,7 @@ const Footer = () => {
       data-scroll
       data-scroll-section
       data-scroll-speed={window.innerWidth > 1284 ? "0.989" : "0"}
-      className="w-full bg-[#4C6EE1] text-white min-h-[95vh] mt-[15vh] flex flex-col rounded-tl-[50px] rounded-tr-[50px]"
+      className="w-full bg-[#18181B] text-white min-h-[95vh] mt-[15vh] flex flex-col rounded-tl-[50px] rounded-tr-[50px]"
     >
       <Marquee />
       <Links />
@@ -27,7 +27,7 @@ const Marquee = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: "18" }}
           className="font-Gilgan font-semibold text-nowrap pl-[4vw]"
         >
-          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#C5F553]"></span>
+          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#FF8E82]"></span>
           Let's work <span className=" font-Crisp font-thin">together</span>
         </motion.h1>
         <motion.h1
@@ -36,7 +36,7 @@ const Marquee = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: "18" }}
           className="font-Gilgan font-semibold text-nowrap pl-[4vw]"
         >
-          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#C5F553]"></span>
+          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#FF8E82]"></span>
           Let's work <span className=" font-Crisp font-thin">together</span>
         </motion.h1>
         <motion.h1
@@ -45,7 +45,7 @@ const Marquee = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: "18" }}
           className="font-Gilgan font-semibold text-nowrap pl-[4vw]"
         >
-          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#C5F553]"></span>
+          <span className="inline-block xl:size-[4.2rem] 2xl:size-[6rem]  rounded-full mr-[4vw] bg-[#FF8E82]"></span>
           Let's work <span className=" font-Crisp font-thin">together</span>
         </motion.h1>
       </div>
@@ -62,15 +62,15 @@ const Links = () => {
         </h2>
         <p className="xl:text-[1rem] 2xl:text-lg font-poppins font-medium tracking-tight mt-4">
           We show the power of{" "}
-          <span className="font-Crisp text-[#C5F553] text-xl">design</span>
+          <span className="font-Crisp text-[#FF8E82] text-xl">design</span>
         </p>
         <p className="xl:text-[1rem] 2xl:text-lg font-poppins font-medium tracking-tight 2xl:mt-2 xl:mt-1">
           We show the power of{" "}
-          <span className="font-Crisp text-[#C5F553] text-xl">beauty</span>
+          <span className="font-Crisp text-[#FF8E82] text-xl">beauty</span>
         </p>
       </div>
       <div className="">
-        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#C5F553]">
+        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#FF8E82]">
           Drop me a line
         </p>
         <div className="mt-[4.9vh]">
@@ -83,7 +83,7 @@ const Links = () => {
         </div>
       </div>
       <div className="">
-        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#C5F553]">
+        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#FF8E82]">
           Link
         </p>
         <div className="mt-[4.9vh] flex flex-col">
@@ -108,7 +108,7 @@ const Links = () => {
         </div>
       </div>
       <div className="">
-        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#C5F553]">
+        <p className="font font-poppins mt-[3vh] xl:text-[1rem] 2xl:text-lg text-[#FF8E82]">
           Social Media
         </p>
         <div className="mt-[4.9vh] flex flex-col">
