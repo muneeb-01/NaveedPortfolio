@@ -1,27 +1,64 @@
-import React from "react";
-import LandingPage from "./Pages/Home/LandingPage";
-import LocomotiveScroll from "locomotive-scroll";
-import Project from "./Pages/Project/Project";
-import SingleProject from "./Pages/SingleProject/SingleProject";
+import React, { useEffect } from "react";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import LocomotiveScroll from "locomotive-scroll";
+import LandingPage from "./Pages/Home/LandingPage";
+import Project from "./Pages/Project/Project";
+import SingleProject from "./Pages/SingleProject/SingleProject";
 
 const App = () => {
-  const locomotiveScroll = new LocomotiveScroll();
+  const location = useLocation();
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/project" element={<Project />} />
-        <Route path="/project/:id" element={<SingleProject />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+    <div data-scroll-container>
+      <AnimatePresence mode="wait" initial={false}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/project/:id" element={<SingleProject />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </AnimatePresence>
+    </div>
   );
 };
 
-export default App;
+const ScrollToTop = ({ scroll }) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (window.LocomotiveScroll) {
+      window.LocomotiveScroll.scrollTo(0);
+    }
+    return () => {};
+  }, [pathname]);
+
+  return null;
+};
+
+const RootApp = () => {
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+    });
+    window.LocomotiveScroll = scroll;
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <App />
+    </BrowserRouter>
+  );
+};
+
+export default RootApp;

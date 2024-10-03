@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const Card = ({ imgUrl, title, index }) => {
   const cardRef = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const element = cardRef.current;
@@ -18,7 +21,7 @@ const Card = ({ imgUrl, title, index }) => {
           gsap.to(".card", {
             scale: 1,
             duration: 0.5,
-            ease: "expoScale(0.5,7,none)",
+            ease: "expoScale(0.1,7,none)",
           });
           gsap.to(element.children[0], { scale: 1.2, duration: 0.5 });
           gsap.to(".cart-text", {
@@ -52,17 +55,25 @@ const Card = ({ imgUrl, title, index }) => {
         },
       },
     });
+
     return () => {
       tl.kill();
     };
   }, []);
+
+  const handleNavigate = (e) => {
+    const route = cardRef.current.children[1].innerText;
+    navigate(`/project/${route}`);
+  };
 
   return (
     <div
       ref={cardRef}
       className="relative w-[90vw] h-[55vh] flex justify-center items-center"
     >
-      <img
+      <motion.img
+        onClick={handleNavigate}
+        loading="lazy"
         src={`${imgUrl}`}
         className={`card rounded-md ml-[5vh] w-[60%] h-full ${
           index === 0 && "scale-[1.2]"

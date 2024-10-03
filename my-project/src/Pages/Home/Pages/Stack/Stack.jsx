@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const Stack = () => {
@@ -46,7 +47,12 @@ const Stack = () => {
 export default Stack;
 
 const StackContainer = ({ address }) => {
-  console.log(address);
+  const textRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleNavigate = (e) => {
+    navigate(`/project/${textRef.current.innerText}`);
+  };
   return (
     <div className="stack drop-shadow-xl">
       <div
@@ -59,11 +65,17 @@ const StackContainer = ({ address }) => {
         />
         <div className="w-full flex ">
           <div className="w-3/4  2xl:pl-20 xl:pl-12 flex items-center">
-            <h1 className="2xl:text-[7rem] xl:text-[5rem] 2xl:pb-10 xl:pb-0 font-poppins tracking-tight uppercase text-white">
+            <h1
+              ref={textRef}
+              className="2xl:text-[7rem] xl:text-[5rem] 2xl:pb-10 xl:pb-0 font-poppins tracking-tight uppercase text-white"
+            >
               THE ESCAPE
             </h1>
           </div>
-          <div className="w-1/2 flex justify-end items-center 2xl:pr-20 xl:pr-10">
+          <div
+            onClick={handleNavigate}
+            className="w-1/2 flex justify-end items-center 2xl:pr-20 xl:pr-10"
+          >
             <div className="rounded-full bg-white 2xl:size-[10rem] xl:size-[6rem]  opacity-85"></div>
           </div>
         </div>

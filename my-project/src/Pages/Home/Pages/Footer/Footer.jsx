@@ -7,7 +7,7 @@ const Footer = () => {
       data-scroll
       data-scroll-section
       data-scroll-speed={window.innerWidth > 1284 ? "0.989" : "0"}
-      className="w-full bg-[#18181B] text-white min-h-[95vh] mt-[15vh] flex flex-col rounded-tl-[50px] rounded-tr-[50px]"
+      className="w-full bg-[#2B2B2B] text-white min-h-[95vh] mt-[15vh] flex flex-col rounded-tl-[50px] rounded-tr-[50px]"
     >
       <Marquee />
       <Links />

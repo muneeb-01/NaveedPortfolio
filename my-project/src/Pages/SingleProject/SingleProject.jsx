@@ -1,15 +1,20 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const SingleProject = () => {
   document.body.setAttribute("theme", "white");
   return (
-    <div className=" w-full">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.7 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+      className=" w-full"
+    >
       <LandingPage />
       <TextContainer />
       <PictureContainer1 />
       <PictureContainer2 />
       <PictureContainer1 />
-    </div>
+    </motion.div>
   );
 };
 
