@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { apiClient } from "../../lib/api-client";
 import { useAppStore } from "../../Store";
-import { ADMIN_LOGOUT_ROUTE } from "../../utils/constants";
+import {
+  ADD_LANDING_PAGE_INFO_ROUTE,
+  ADMIN_LOGOUT_ROUTE,
+} from "../../utils/constants";
+import { toast } from "react-toastify";
 
 const AdminProfile = () => {
   const { userInfo, setUserInfo } = useAppStore();
   const handleLogout = async () => {
-    const responce = await apiClient.get(ADMIN_LOGOUT_ROUTE, {
-      withCredentials: true,
-    });
-    if (responce.status === 200) {
-      setUserInfo(undefined);
-      window.location.reload;
+    try {
+      const responce = await apiClient.get(ADMIN_LOGOUT_ROUTE, {
+        withCredentials: true,
+      });
+      if (responce.status === 200) {
+        setUserInfo(undefined);
+        window.location.reload;
+      }
+    } catch (error) {
+      toast.error("Somthing went wrong");
     }
   };
 
@@ -30,7 +38,35 @@ const AdminProfile = () => {
 export default AdminProfile;
 
 const LandingPageInfo = () => {
-  const updateLandingInfo = () => {};
+  const [paragraph_1, setParagraph_1] = useState("");
+  const [paragraph_2, setParagraph_2] = useState("");
+
+  const isValid = () => {
+    if (paragraph_1.length == 0) {
+      toast.info("Enter paragraph 1.");
+      return false;
+    }
+    if (paragraph_2.length == 0) {
+      toast.info("Enter paragraph 2.");
+      return false;
+    }
+    return true;
+  };
+
+  const updateLandingInfo = async () => {
+    if (isValid()) {
+      try {
+        const responce = await apiClient.post(
+          ADD_LANDING_PAGE_INFO_ROUTE,
+          { paragraph_1, paragraph_2 },
+          {
+            withCredentials: true,
+          }
+        );
+        console.log(responce);
+      } catch (error) {}
+    }
+  };
   return (
     <div className="w-full text-white py-6">
       <h1 className="font font-Gilgan text-xl pt-20 pb-6 text-center">
@@ -49,6 +85,8 @@ const LandingPageInfo = () => {
           </label>
           <textarea
             id="paragraph_1"
+            value={paragraph_1}
+            onChange={(e) => setParagraph_1(e.target.value)}
             rows="4"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
@@ -64,6 +102,8 @@ const LandingPageInfo = () => {
           <textarea
             id="paragraph_2"
             rows="4"
+            value={paragraph_2}
+            onChange={(e) => setParagraph_2(e.target.value)}
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here..."
           ></textarea>
