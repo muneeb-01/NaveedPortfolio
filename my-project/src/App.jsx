@@ -11,6 +11,9 @@ import LocomotiveScroll from "locomotive-scroll";
 import LandingPage from "./Pages/Home/LandingPage";
 import Project from "./Pages/Project/Project";
 import SingleProject from "./Pages/SingleProject/SingleProject";
+import FormDisplay from "./Pages/form/FormDisplay";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const location = useLocation();
@@ -20,6 +23,7 @@ const App = () => {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/project" element={<Project />} />
+          <Route path="/admin/login" element={<FormDisplay />} />
           <Route path="/project/:id" element={<SingleProject />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
@@ -55,6 +59,7 @@ const RootApp = () => {
 
   return (
     <BrowserRouter>
+      <ToastContainer />
       <ScrollToTop />
       <App />
     </BrowserRouter>
