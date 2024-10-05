@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { apiClient } from "../../../lib/api-client";
 import { SIGNUP_ROUTE } from "../../../utils/constants";
+import { useAppStore } from "../../../Store/index";
+
 const Signup = ({ handleIsSignup }) => {
+  const { userInfo, setUserInfo } = useAppStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -43,6 +47,7 @@ const Signup = ({ handleIsSignup }) => {
         if (responce.status === 202) {
           toast.error(responce.data);
         } else if (responce.status === 200) {
+          setUserInfo(responce.data.admin);
           toast.success("Account has been created.");
         } else {
           toast.error("somthing went wrong");

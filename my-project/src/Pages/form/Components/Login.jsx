@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { apiClient } from "../../../lib/api-client";
 import { LOGIN_ROUTE } from "../../../utils/constants";
-
+import { useAppStore } from "../../../Store/index";
 const Login = ({ handleIsSignup }) => {
+  const { userInfo, setUserInfo } = useAppStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,6 +33,7 @@ const Login = ({ handleIsSignup }) => {
         if (responce.status === 202) {
           toast.error(responce.data);
         } else if (responce.status === 200) {
+          setUserInfo(responce.data.user);
           toast.success("Login successfully.");
         }
       } catch (error) {

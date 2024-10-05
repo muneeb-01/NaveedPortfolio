@@ -33,9 +33,7 @@ module.exports.AddLandingPageInfo = async (req, res) => {
 
 module.exports.GetLandingPageInfo = async (req, res) => {
   try {
-    console.log("first before");
     const paragraph = await LandingInfoModel.findOne();
-    console.log("first after");
     if (!paragraph) res.status(202).send("Add the paragraph to get it.");
 
     res.status(200).json({ paragraph });
