@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { apiClient } from "../../../lib/api-client";
+import { LOGIN_ROUTE } from "../../../utils/constants";
 
 const Login = ({ handleIsSignup }) => {
   const [email, setEmail] = useState("");
@@ -17,9 +19,23 @@ const Login = ({ handleIsSignup }) => {
     return true;
   };
 
-  const handleLogin = () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     if (isValid()) {
-      console.log(email, password);
+      try {
+        const responce = await apiClient.post(
+          LOGIN_ROUTE,
+          { email, password },
+          { withCredentials: true }
+        );
+        if (responce.status === 202) {
+          toast.error(responce.data);
+        } else if (responce.status === 200) {
+          toast.success("Login successfully.");
+        }
+      } catch (error) {
+        toast.info("somthing went wrong.");
+      }
     }
   };
 
@@ -30,7 +46,7 @@ const Login = ({ handleIsSignup }) => {
           Log In
         </h3>
         <form
-          action="#"
+          onSubmit={handleLogin}
           className="flex flex-col space-y-4 font-poppins text-sm"
         >
           <div className="flex flex-col space-y-1">
@@ -68,7 +84,6 @@ const Login = ({ handleIsSignup }) => {
           </div>
           <div>
             <button
-              onClick={handleLogin}
               type="submit"
               className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
             >

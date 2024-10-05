@@ -11,9 +11,11 @@ const ProjectRoute = require("./src/Routes/ProjectRoute");
 const app = express();
 const PORT = process.env.PORT;
 
+const Origin = process.env.ORIGIN;
+
 app.use(
   cors({
-    origin: [process.env.ORIGIN],
+    origin: [Origin],
     methods: ["POST", "PUT", "PATCH", "DELETE", "GET"],
     credentials: true,
   })

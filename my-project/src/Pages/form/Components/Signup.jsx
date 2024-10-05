@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { apiClient } from "../../../lib/api-client";
+import { SIGNUP_ROUTE } from "../../../utils/constants";
 const Signup = ({ handleIsSignup }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,8 +31,25 @@ const Signup = ({ handleIsSignup }) => {
     }
     return true;
   };
-  const handleSignup = () => {
+  const handleSignup = async (e) => {
+    e.preventDefault();
     if (isValid()) {
+      try {
+        const responce = await apiClient.post(
+          SIGNUP_ROUTE,
+          { email, password, username },
+          { withCredentials: true }
+        );
+        if (responce.status === 202) {
+          toast.error(responce.data);
+        } else if (responce.status === 200) {
+          toast.success("Account has been created.");
+        } else {
+          toast.error("somthing went wrong");
+        }
+      } catch (error) {
+        toast.error("somthing went wrong");
+      }
     }
   };
   return (
@@ -40,7 +59,7 @@ const Signup = ({ handleIsSignup }) => {
           Sign Up
         </h3>
         <form
-          action="#"
+          onSubmit={handleSignup}
           className="flex flex-col space-y-4 font-poppins text-sm"
         >
           <div className="flex flex-col space-y-1">
@@ -113,7 +132,6 @@ const Signup = ({ handleIsSignup }) => {
           <div>
             <button
               type="submit"
-              onClick={handleSignup}
               className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
             >
               Sign Up

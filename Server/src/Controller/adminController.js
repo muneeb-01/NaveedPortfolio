@@ -27,7 +27,6 @@ module.exports.CreateAdmin = async (req, res) => {
     });
     res.status(200).json({ admin });
   } catch (error) {
-    console.log(error);
     dbgr("Error from (MODELS->AdminRoute) /create");
   }
 };
@@ -83,5 +82,15 @@ module.exports.LogoutAdmin = async (req, res) => {
     res.status(200).send("Logout Successfully");
   } catch (error) {
     dbgr("Error from (MODELS->AdminRoute) /logout");
+  }
+};
+
+module.exports.handleFalseAdminCreation = async (req, res) => {
+  try {
+    res.status(202).send("You are not allowed to create an account.");
+  } catch (error) {
+    dbgr(
+      "Error from (MODELS->AdminRoute) /create (handle false admin creation)"
+    );
   }
 };
