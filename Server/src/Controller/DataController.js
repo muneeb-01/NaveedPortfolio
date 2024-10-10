@@ -24,7 +24,6 @@ module.exports.AddLandingPageInfo = async (req, res) => {
         paragraph_2,
       });
     }
-
     res.status(200).json({ paragraphs });
   } catch (error) {
     dbgr("Error from /AddLandingPageInfo");

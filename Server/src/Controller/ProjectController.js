@@ -5,7 +5,6 @@ module.exports.AddProjectImages = async (req, res) => {
     const { userId } = req;
 
     if (!userId) res.status(202).send("Unauthorized user");
-
     const files = req?.files;
     const fileUrl = files.map((file) => {
       return `/uploads/projects/${file.filename}`;
@@ -13,7 +12,7 @@ module.exports.AddProjectImages = async (req, res) => {
     if (fileUrl.length == 0)
       return res.status(202).send("Unable to upload files.");
 
-    res.status(200).send("files uploaded successfully.");
+    res.status(200).json(fileUrl);
   } catch (error) {}
 };
 
